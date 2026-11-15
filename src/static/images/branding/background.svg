@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="base" cx="50%" cy="48%" r="85%">
+      <stop offset="0" stop-color="#f9fcff"/>
+      <stop offset="0.56" stop-color="#edf7ff"/>
+      <stop offset="1" stop-color="#d5ecfc"/>
+    </radialGradient>
+    <linearGradient id="left" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a7dbfa" stop-opacity=".66"/>
+      <stop offset=".58" stop-color="#d9f0ff" stop-opacity=".34"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".12"/>
+    </linearGradient>
+    <linearGradient id="right" x1="1" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#8bcfff" stop-opacity=".40"/>
+      <stop offset="1" stop-color="#e7f7ff" stop-opacity=".08"/>
+    </linearGradient>
+    <linearGradient id="lower" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#a3d3fa" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#f9fcff" stop-opacity=".05"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#base)"/>
+  <!-- Wide left sweep: ends well before the central form -->
+  <path d="M0 120 C190 190 380 275 560 465 C710 625 755 785 770 900 L0 900 Z" fill="url(#left)"/>
+  <!-- Soft sweeping band entering from lower right -->
+  <path d="M1600 460 C1460 610 1320 660 1120 590 C960 535 855 470 735 480 C1030 680 1250 785 1600 805 Z" fill="url(#right)"/>
+  <!-- Curved top-right corner -->
+  <path d="M1190 0 C1230 130 1355 225 1600 255 L1600 0 Z" fill="#b8e5ff" fill-opacity=".30"/>
+  <path d="M1190 0 C1230 130 1355 225 1600 255" fill="none" stroke="#ffffff" stroke-opacity=".60" stroke-width="3"/>
+  <!-- Very faint bottom-left curved ribbon -->
+  <path d="M0 510 C230 510 395 655 420 900 L0 900 Z" fill="url(#lower)"/>
+  <path d="M0 510 C230 510 395 655 420 900" fill="none" stroke="#ffffff" stroke-opacity=".58" stroke-width="3"/>
+  <path d="M0 495 C240 505 415 665 435 900" fill="none" stroke="#65bfff" stroke-opacity=".24" stroke-width="1.5"/>
+</svg>

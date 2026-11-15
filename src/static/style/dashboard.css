@@ -1,0 +1,372 @@
+
+/* =========================================
+   GENERAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #17324d;
+    background-color: #f3f6f9;
+}
+
+
+/* =========================================
+   DASHBOARD HEADER
+========================================= */
+
+.dash-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+    padding: 15px 5%;
+
+    background-color: #ffffff;
+    border-bottom: 1px solid #e4eaf0;
+}
+
+/* VIA Logo */
+
+.logo img {
+    width: clamp(180px, 18vw, 350px);
+    height: auto;
+    display: block;
+}
+
+/* Header Actions */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* Logout */
+
+.logout-button {
+    color: #073779;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Notification Bell */
+
+.notification {
+    color: #073779;
+    font-size: 23px;
+    text-decoration: none;
+}
+
+/* Header Hover Effects */
+
+.logout-button:hover,
+.notification:hover {
+    color: #00a9e5;
+}
+
+
+/* =========================================
+   MAIN DASHBOARD LAYOUT
+========================================= */
+
+.dash-main {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+
+    min-height: calc(100vh - 100px);
+}
+
+
+/* =========================================
+   LEFT DASHBOARD NAVIGATION
+========================================= */
+
+.dash-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    width: 220px;
+    padding: 25px 12px;
+
+    background-color: #ffffff;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Navigation Groups */
+
+.nav-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Navigation Links */
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 13px 15px;
+    border-radius: 8px;
+
+    background-color: #ffffff;
+    color: #073779;
+
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+/* Navigation Icons */
+
+.nav-link i {
+    font-size: 21px;
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* Hover State */
+
+.nav-link:hover {
+    background-color: #b4effb;
+    color: #073779;
+}
+
+/* Keyboard Focus */
+
+.nav-link:focus-visible {
+    outline: 2px solid #00a9e5;
+    outline-offset: 2px;
+}
+
+/* Navigation Divider */
+
+.nav-divider {
+    width: 100%;
+    height: 1px;
+
+    border: none;
+    background-color: #d5e0e8;
+
+    margin: 8px 0;
+}
+
+
+/* =========================================
+   DASHBOARD CONTENT AREA
+========================================= */
+
+.dash-content {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+
+    padding: 25px;
+    min-width: 0;
+
+    background-color: #f3f6f9;
+}
+
+/* Top Row: Goals and Calendar */
+
+.top-section {
+    display: grid;
+    grid-template-columns: 1.7fr 1fr;
+    gap: 20px;
+    min-width: 0;
+}
+
+/* Bottom Row: Bookings and Advertising */
+
+.bottom-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    min-width: 0;
+}
+
+
+/* =========================================
+   DASHBOARD MODULE CONTAINERS
+========================================= */
+
+.goals-module,
+.calendar-module,
+.booking-module,
+.ad-module {
+    display: flex;
+    flex-direction: column;
+
+    background-color: #ffffff;
+
+    border: 1px solid #e4eaf0;
+    border-radius: 12px;
+
+    box-shadow: 0 3px 12px rgba(7, 55, 121, 0.06);
+
+    min-height: 250px;
+    min-width: 0;
+    padding: 20px;
+}
+
+
+/* =========================================
+   MODULE HEADERS AND NAVIGATION
+========================================= */
+
+.module-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.module-header h2 {
+    margin: 0;
+    color: #092452;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Top-right navigation button */
+
+.module-nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    width: 36px;
+    height: 36px;
+
+    background-color: #f5f8fc;
+    color: #073779;
+
+    border: 1px solid #d5dee8;
+    border-radius: 8px;
+
+    text-decoration: none;
+    font-size: 17px;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.module-nav-button:hover {
+    background-color: #b4effb;
+    border-color: #00a9e5;
+    color: #073779;
+}
+
+.module-nav-button:focus-visible {
+    outline: 2px solid #00a9e5;
+    outline-offset: 2px;
+}
+
+
+/* =========================================
+   GRACEFUL DEGRADATION
+========================================= */
+
+.module-unavailable {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    flex: 1;
+    min-height: 200px;
+
+    color: #8395a7;
+    text-align: center;
+}
+
+/* Unavailable Icon */
+
+.module-unavailable i {
+    font-size: 36px;
+    color: #a5b4c3;
+}
+
+/* Unavailable Message */
+
+.module-unavailable p {
+    margin: 0;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   RESPONSIVE LAYOUT
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .top-section,
+    .bottom-section {
+        grid-template-columns: 1fr;
+    }
+
+    .dash-content {
+        grid-template-rows: auto auto;
+    }
+
+}
+
+@media (max-width: 650px) {
+
+    .dash-main {
+        grid-template-columns: 1fr;
+    }
+
+    .dash-nav {
+        width: 100%;
+        min-height: auto;
+        box-shadow: none;
+        border-bottom: 1px solid #e4eaf0;
+    }
+
+    .nav-group {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .nav-link {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .nav-link i {
+        font-size: 18px;
+    }
+
+    .dash-content {
+        padding: 15px;
+    }
+
+    .dash-header {
+        padding: 15px;
+    }
+
+    .logo img {
+        width: 180px;
+    }
+
+}

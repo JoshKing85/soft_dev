@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VIA Health & Fitness | Dashboard</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style/dashboard.css') }}">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+
+    <!-- Dashboard Header -->
+    <header class="dash-header">
+
+        <a href="{{ url_for('dashboard.dashboard') }}" class="logo">
+            <img src="{{ url_for('static', filename='images/branding/via_title_logo.png') }}"
+                 alt="VIA Health & Fitness">
+        </a>
+
+        <div class="header-actions">
+
+            <a href="{{ url_for('landing.landing') }}" class="logout-button">
+                Log Out
+            </a>
+
+            <a href="#" onclick="return false;"
+               class="notification"
+               aria-label="Notifications">
+                <i class="bi bi-bell"></i>
+            </a>
+
+        </div>
+
+    </header>
+
+    <!-- Dashboard Main Layout -->
+    <main class="dash-main">
+
+        <!-- Left Navigation -->
+        <nav class="dash-nav" aria-label="Dashboard navigation">
+
+            <!-- Module Navigation -->
+            <div class="nav-group">
+
+                <a href="{{ url_for('goals.goals') }}"
+                   class="nav-link goals-nav">
+                    <i class="bi bi-bullseye"></i>
+                    <span>Goals</span>
+                </a>
+
+                <a href="#" onclick="return false;"
+                   class="nav-link book-nav">
+                    <i class="bi bi-calendar-check"></i>
+                    <span>Bookings</span>
+                </a>
+
+                <a href="#" onclick="return false;"
+                   class="nav-link cal-nav">
+                    <i class="bi bi-calendar3"></i>
+                    <span>Calendar</span>
+                </a>
+
+                <a href="#" onclick="return false;"
+                   class="nav-link shop-nav">
+                    <i class="bi bi-bag"></i>
+                    <span>VIA Shop</span>
+                </a>
+
+            </div>
+
+            <!-- Navigation Divider -->
+            <hr class="nav-divider">
+
+            <!-- User Navigation -->
+            <div class="nav-group">
+
+                <a href="#" onclick="return false;"
+                   class="nav-link acc-nav">
+                    <i class="bi bi-person"></i>
+                    <span>Account</span>
+                </a>
+
+                <a href="#" onclick="return false;"
+                   class="nav-link memb-nav">
+                    <i class="bi bi-credit-card"></i>
+                    <span>Membership</span>
+                </a>
+
+                <a href="#" onclick="return false;"
+                   class="nav-link fac-nav">
+                    <i class="bi bi-building"></i>
+                    <span>Facilities</span>
+                </a>
+
+                <a href="#" onclick="return false;"
+                   class="nav-link act-nav">
+                    <i class="bi bi-activity"></i>
+                    <span>Activity</span>
+                </a>
+
+                <a href="#" onclick="return false;"
+                   class="nav-link supp-nav">
+                    <i class="bi bi-question-circle"></i>
+                    <span>Support</span>
+                </a>
+
+            </div>
+
+        </nav>
+
+        <!-- Dashboard Content -->
+        <div class="dash-content">
+
+            <!-- Top Row -->
+            <div class="top-section">
+
+                <!-- Goals Module -->
+                <section class="goals-module" aria-label="Fitness Goals">
+
+                    <div class="module-header">
+                        <h2>Goals</h2>
+                        <a href="{{ url_for('goals.goals') }}"
+                           class="module-nav-button"
+                           aria-label="Open Goals">
+                            <i class="bi bi-arrow-up-right"></i>
+                        </a>
+                    </div>
+
+                    {% if dashboard_data.get("goals") is none %}
+                        <div class="module-unavailable">
+                            <i class="bi bi-bullseye"></i>
+                            <p>Goals temporarily unavailable</p>
+                        </div>
+                    {% endif %}
+
+                </section>
+
+                <!-- Calendar Module -->
+                <section class="calendar-module" aria-label="Class Calendar">
+
+                    <div class="module-header">
+                        <h2>Calendar</h2>
+                        <a href="#" onclick="return false;"
+                           class="module-nav-button"
+                           aria-label="Open Calendar">
+                            <i class="bi bi-arrow-up-right"></i>
+                        </a>
+                    </div>
+
+                    {% if dashboard_data.get("calendar") is none %}
+                        <div class="module-unavailable">
+                            <i class="bi bi-calendar-x"></i>
+                            <p>Calendar temporarily unavailable</p>
+                        </div>
+                    {% endif %}
+
+                </section>
+
+            </div>
+
+            <!-- Bottom Row -->
+            <div class="bottom-section">
+
+                <!-- Bookings Module -->
+                <section class="booking-module" aria-label="Bookings">
+
+                    <div class="module-header">
+                        <h2>Bookings</h2>
+                        <a href="#" onclick="return false;"
+                           class="module-nav-button"
+                           aria-label="Open Bookings">
+                            <i class="bi bi-arrow-up-right"></i>
+                        </a>
+                    </div>
+
+                    {% if dashboard_data.get("bookings") is none %}
+                        <div class="module-unavailable">
+                            <i class="bi bi-calendar2-x"></i>
+                            <p>Bookings temporarily unavailable</p>
+                        </div>
+                    {% endif %}
+
+                </section>
+
+                <!-- Advertising Module -->
+                <section class="ad-module" aria-label="Advertisements">
+
+                    <div class="module-header">
+                        <h2>Offers</h2>
+                        <a href="#" onclick="return false;"
+                           class="module-nav-button"
+                           aria-label="Open Offers">
+                            <i class="bi bi-arrow-up-right"></i>
+                        </a>
+                    </div>
+
+                    {% if dashboard_data.get("advertising") is none %}
+                        <div class="module-unavailable">
+                            <i class="bi bi-tag"></i>
+                            <p>Offers temporarily unavailable</p>
+                        </div>
+                    {% endif %}
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

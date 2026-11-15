@@ -1,0 +1,602 @@
+
+/* =========================================
+   GENERAL
+========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #17324d;
+    background-color: #f5f8fa;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.goals-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5%;
+    background-color: white;
+    gap: 25px;
+    border-bottom: 1px solid #e5ebf1;
+}
+
+/* Logo */
+
+.logo img {
+    width: clamp(180px, 18vw, 350px);
+    height: auto;
+    display: block;
+}
+
+/* Top Navigation */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-actions a {
+    color: #17324d;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: clamp(12px, 1.2vw, 18px);
+    padding: 10px 15px;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.header-actions a:hover {
+    background-color: #e6f7fb;
+    color: #00a8c8;
+}
+
+/* Logout button */
+
+.header-actions .logout-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 110px;
+    padding: 14px 22px;
+    border-radius: 7px;
+    color: white;
+    background-color: #073779;
+    border: 1px solid #073779;
+    font-size: clamp(12px, 1vw, 16px);
+}
+
+.header-actions .logout-button:hover {
+    background-color: #005aab;
+    color: white;
+}
+
+/* =========================================
+   MAIN BACKGROUND
+========================================= */
+
+.goals-main {
+    min-height: calc(100vh - 100px);
+    padding: 40px 5% 60px;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 255, 255, 0.15),
+            rgba(255, 255, 255, 0.15)
+        ),
+        url("../images/branding/background.svg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* =========================================
+   GOALS PAGE LAYOUT
+========================================= */
+
+.goals-content {
+    display: grid;
+    grid-template-columns: minmax(360px, 0.9fr) minmax(0, 1.1fr);
+    gap: 25px;
+
+    width: 100%;
+    max-width: 1450px;
+    margin: 0 auto;
+
+    align-items: start;
+}
+
+/* Shared card styling */
+
+.create-goal,
+.current-goals,
+.via-points {
+    background-color: white;
+    border: 1px solid #e0e8f0;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(7, 55, 121, 0.08);
+    padding: 30px;
+    min-width: 0;
+}
+
+.create-goal h2,
+.current-goals h2,
+.via-points h2 {
+    margin: 0 0 25px;
+    color: #092452;
+    font-size: clamp(21px, 2vw, 26px);
+    font-weight: 700;
+}
+
+/* =========================================
+   CREATE GOAL
+========================================= */
+
+.create-goal {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.create-goal form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* =========================================
+   GOAL CATEGORY BUTTONS
+========================================= */
+
+.goal-categories {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.goal-categories button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 65px;
+    padding: 12px 8px;
+
+    background-color: #f5f8fc;
+    color: #17324d;
+
+    border: 1px solid #d5dee8;
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s,
+        border-color 0.2s,
+        color 0.2s;
+}
+
+.goal-categories button:hover {
+    background-color: #e6f7fb;
+    border-color: #00a9e5;
+}
+
+.goal-categories button.active {
+    background-color: #073779;
+    border-color: #073779;
+    color: white;
+}
+
+.goal-categories button:focus-visible {
+    outline: 3px solid #00a9e5;
+    outline-offset: 2px;
+}
+
+/* =========================================
+   GOAL FIELD CONTAINERS
+========================================= */
+
+#goal-fields {
+    width: 100%;
+}
+
+.activities-fields,
+.weight-fields,
+.pb-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Hide inactive fields */
+
+#goal-fields [hidden] {
+    display: none !important;
+}
+
+/* Labels */
+
+#goal-fields label {
+    display: block;
+    margin-top: 8px;
+
+    color: #17324d;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Inputs and dropdowns */
+
+#goal-fields input,
+#goal-fields select {
+    width: 100%;
+    min-width: 0;
+    padding: 13px 15px;
+
+    background-color: white;
+    color: #17324d;
+
+    border: 1px solid #d5dee8;
+    border-radius: 8px;
+
+    font-size: 15px;
+    outline: none;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+#goal-fields input::placeholder {
+    color: #8996a8;
+}
+
+#goal-fields input:focus,
+#goal-fields select:focus {
+    border-color: #00a9e5;
+    box-shadow: 0 0 0 3px rgba(0, 169, 229, 0.12);
+}
+
+/* =========================================
+   ACTIVITIES
+========================================= */
+
+.goal-period {
+    margin-top: 10px;
+    padding: 16px 18px;
+
+    background-color: #f3f8fd;
+    border: 1px solid #e0eaf5;
+    border-radius: 9px;
+}
+
+.goal-period label {
+    margin: 0 0 10px;
+    color: #073779;
+}
+
+.goal-period p {
+    margin: 6px 0;
+    color: #52627c;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* =========================================
+   WEIGHT
+========================================= */
+
+.current-input,
+.target-input {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+}
+
+.current-input input,
+.target-input input {
+    flex: 1;
+}
+
+.weight-unit {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.duration-target {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+/* =========================================
+   PERSONAL BEST
+========================================= */
+
+.pb-time-fields,
+.pb-bench-fields,
+.pb-pullups-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    margin-top: 8px;
+    padding-top: 15px;
+
+    border-top: 1px solid #e5ebf1;
+}
+
+/* =========================================
+   SET GOAL BUTTON
+========================================= */
+
+.set-goal-button {
+    width: 100%;
+    margin-top: 5px;
+    padding: 16px 20px;
+
+    background-color: #073779;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: background-color 0.2s;
+}
+
+.set-goal-button:hover {
+    background-color: #005aab;
+}
+
+.set-goal-button:focus-visible {
+    outline: 3px solid #00a9e5;
+    outline-offset: 3px;
+}
+
+/* =========================================
+   CURRENT GOALS
+========================================= */
+
+.current-goals {
+    grid-column: 2;
+    grid-row: 1;
+
+    min-height: 470px;
+    border-top: 4px solid #073779;
+}
+
+/* Ready for active goal cards */
+
+.goal-card {
+    padding: 20px;
+    margin-bottom: 15px;
+
+    background-color: #f8fafc;
+    border: 1px solid #e0e8f0;
+    border-radius: 10px;
+}
+
+.goal-card h3 {
+    margin: 0 0 10px;
+    color: #092452;
+    font-size: 17px;
+}
+
+.goal-card p {
+    margin: 6px 0;
+    color: #52627c;
+    font-size: 14px;
+}
+
+/* Progress bar */
+
+.goal-progress {
+    width: 100%;
+    height: 10px;
+    margin-top: 15px;
+
+    background-color: #e4edf5;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.goal-progress-fill {
+    height: 100%;
+    width: 0%;
+
+    background-color: #00a9e5;
+    border-radius: inherit;
+}
+
+/* Empty goal slots */
+
+.empty-goal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 90px;
+    margin-bottom: 15px;
+
+    border: 2px dashed #e0e8f0;
+    border-radius: 10px;
+
+    background-color: #fafcfe;
+    color: #b8c5d3;
+
+    font-size: 32px;
+    font-weight: 700;
+}
+
+/* =========================================
+   VIA POINTS
+========================================= */
+
+.via-points {
+    grid-column: 1 / -1;
+    grid-row: 2;
+
+    border-top: 4px solid #00a9e5;
+}
+
+.via-points h2 {
+    margin-bottom: 15px;
+}
+
+/* Ready for future rewards content */
+
+.points-balance {
+    color: #073779;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.points-description {
+    color: #52627c;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.claim-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 22px;
+    margin-top: 15px;
+
+    background-color: #073779;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.claim-button:hover {
+    background-color: #005aab;
+}
+
+.goal-message {
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.goal-message.success {
+    background-color: #e6f7ed;
+    color: #237a46;
+    border: 1px solid #a9dfbd;
+}
+
+.goal-message.error {
+    background-color: #fdeaea;
+    color: #b42318;
+    border: 1px solid #f3b5b0;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .goals-content {
+        grid-template-columns: 1fr;
+        max-width: 750px;
+    }
+
+    .create-goal,
+    .current-goals,
+    .via-points {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    .current-goals {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .goals-main {
+        padding: 25px 5%;
+    }
+
+    .goals-header {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .header-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 8px;
+    }
+
+    .header-actions a {
+        padding: 9px 12px;
+        font-size: 13px;
+    }
+
+    .create-goal,
+    .current-goals,
+    .via-points {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .goal-categories {
+        gap: 6px;
+    }
+
+    .goal-categories button {
+        min-height: 60px;
+        padding: 10px 5px;
+        font-size: 12px;
+    }
+
+    .create-goal h2,
+    .current-goals h2,
+    .via-points h2 {
+        font-size: 21px;
+    }
+
+
+}

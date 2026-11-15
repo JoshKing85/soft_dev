@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VIA Health & Fitness</title>
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style/landing.css') }}">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+
+        <a href="/" class="logo">
+            <img src="{{ url_for('static', filename='images/branding/via_title_logo.png') }}"
+                 alt="VIA Health & Fitness">
+        </a>
+
+        <nav class="main-nav">
+            <a href="/">landing</a>
+            <a href="{{ url_for('dev_page.dev_page') }}">Memberships</a>
+            <a href="{{ url_for('dev_page.dev_page') }}">Facilities</a>
+            <a href="{{ url_for('dev_page.dev_page') }}">About</a>
+        </nav>
+
+        <div class="header-actions">
+            <a href="{{ url_for('login.login') }}" class="login-button">Log In</a>
+            <a href="{{ url_for('signup.signup') }}" class="signup-button">Sign Up</a>
+        </div>
+
+    </header>
+
+    <main>
+
+        <!-- Hero -->
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <h1>The Path to the Real You.</h1>
+
+                <div class="hero-accent"></div>
+
+                <p>
+                    A journey of a thousand miles 
+                    begins with a single step. 
+                    Take yours with VIA.
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+
+            <div class="feature-card">
+                <img src="{{ url_for('static', filename='images/landing/features/equipment.svg') }}"
+                     alt="Barbell icon">
+
+                <h2>Modern Equipment</h2>
+
+                <p>
+                    The right equipment and the right environment.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <img src="{{ url_for('static', filename='images/landing/features/support.svg') }}"
+                     alt="Expert support icon">
+
+                <h2>Expert Support</h2>
+
+                <p>
+                    Guidance and encouragement 
+                    at every step of your journey.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <img src="{{ url_for('static', filename='images/landing/features/classes.svg') }}"
+                     alt="Classes calendar icon">
+
+                <h2>Variety of Classes</h2>
+
+                <p>
+                    Fitness classes for all
+                    interests, abilities and schedules.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <img src="{{ url_for('static', filename='images/landing/features/via_goals.svg') }}"
+                     alt="VIA Goals target icon">
+
+                <h2>VIA Goals</h2>
+
+                <p>
+                    Set, track and achieve your personal targets,
+                    to earn VIA Rewards.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- Promotional and membership section -->
+        <section class="promo-content" id="membership">
+
+            <!-- Left panel -->
+            <div class="content-slogan">
+
+                <h2>MORE THAN A GYM</h2>
+
+                <p>
+                    Open 7 days a week,<br>
+                    for every step forward.
+                </p>
+
+            </div>
+
+            <!-- Right panel -->
+            <div class="membership-ad">
+
+                <div class="membership-heading">
+
+                    <div>
+                        <h2>Find the right membership for you</h2>
+
+                        <p>
+                            Whether you're just getting started or looking to take things further,<br>
+                            we have a membership to suit your goals.
+                        </p>
+                    </div>
+
+                    <a href="/memberships" class="view-memberships">
+                        View all memberships →
+                    </a>
+
+                </div>
+
+                <div class="membership-options">
+
+                    <!-- Essential -->
+                    <a href="#via-standard" class="membership-card essential">
+
+                        <div class="membership-card-top">
+
+                            <span class="membership-icon">♧</span>
+
+                            <div>
+                                <h3>VIA Standard</h3>
+                                <p>Access to gym facilities</p>
+                            </div>
+
+                            <span class="membership-arrow">›</span>
+
+                        </div>
+
+                        <p class="membership-price">
+                            From <strong>£24.99</strong> / month
+                        </p>
+
+                    </a>
+
+                    <!-- Plus -->
+                    <a href="#via-plus" class="membership-card plus">
+
+                        <div class="membership-card-top">
+
+                            <img src="{{ url_for('static', filename='images/landing/features/equipment.svg') }}"
+                                 alt=""
+                                 class="membership-icon-img">
+
+                            <div>
+                                <h3>VIA Plus</h3>
+                                <p>Gym + 5 classes pcm </p>
+                            </div>
+
+                            <span class="membership-arrow">›</span>
+
+                        </div>
+
+                        <p class="membership-price">
+                            From <strong>£34.99</strong> / month
+                        </p>
+
+                    </a>
+
+                    <!-- Premium -->
+                    <a href="#via premium" class="membership-card premium">
+
+                        <div class="membership-card-top">
+
+                            <span class="membership-icon premium-star">★</span>
+
+                            <div>
+                                <h3>VIA Premium</h3>
+                                <p>Gym, unlimited classes + personal training</p>
+                            </div>
+
+                            <span class="membership-arrow">›</span>
+
+                        </div>
+
+                        <p class="membership-price">
+                            From <strong>£49.99</strong> / month
+                        </p>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Facilities banner -->
+        <section class="facilities-banner" id="facilities">
+
+            <div class="facilities-heading">
+
+                <span>OUR FACILITIES</span>
+
+                <h2>
+                    Everything You Need<br>
+                    Under One Roof.
+                </h2>
+
+                <div class="facilities-accent"></div>
+
+            </div>
+
+            <div class="facilities-items">
+
+                <!-- Strength -->
+                <div class="facility-item">
+
+                    <img src="{{ url_for('static', filename='images/landing/features/equipment.svg') }}"
+                         alt=""
+                         class="facility-icon">
+
+                    <p>Strength &amp;<br>Conditioning</p>
+
+                </div>
+
+                <!-- Cardio -->
+                <div class="facility-item">
+
+                    <i class="bi bi-person-walking"></i>
+
+                    <p>Cardio Zone</p>
+
+                </div>
+
+                <!-- Classes -->
+                <div class="facility-item">
+
+                    <i class="bi bi-people"></i>
+
+                    <p>Group Classes</p>
+
+                </div>
+
+                <!-- Wellness -->
+                <div class="facility-item">
+
+                    <i class="bi bi-flower1"></i>
+
+                    <p>Wellness &amp;<br>Recovery</p>
+
+                </div>
+
+                <!-- Changing rooms -->
+                <div class="facility-item">
+
+                    <i class="bi bi-droplet"></i>
+
+                    <p>Changing Rooms<br>&amp; Showers</p>
+
+                </div>
+
+                <!-- Cafe -->
+                <div class="facility-item">
+
+                    <i class="bi bi-cup-hot"></i>
+
+                    <p>Café &amp; Social<br>Space</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

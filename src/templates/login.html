@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In | VIA Health & Fitness</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style/login.css') }}">
+</head>
+
+<body>
+    <header class="login-header">
+        <a href="{{ url_for('landing.landing') }}" class="logo">
+            <img src="{{ url_for('static', filename='images/branding/via_title_logo.png') }}"
+                 alt="VIA Health & Fitness">
+        </a>
+
+        <nav class="login-nav">
+            <a href="{{ url_for('landing.landing') }}">Home</a>
+            <a href="/sign-up" class="signup-button">Sign Up</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="login-hero">
+
+            <!-- Left side: Login form -->
+            <div class="login-form">
+                <h1>Welcome Back</h1>
+                <p>Log in to continue your VIA journey.</p>
+
+                <form action="{{ url_for('login.login') }}" method="POST">
+                    {% if error %}
+                        <p class="login-error">TEST ERROR</p>
+                    {% endif %}
+                    <label for="email">Email</label>
+                    <input type="email"
+                           id="email"
+                           name="email"
+                           placeholder="Enter your email"
+                           autocomplete="email"
+                           required>
+
+                    <label for="password">Password</label>
+
+                    <div class="password-wrapper">
+                        <input type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required>
+
+                        <button type="button"
+                                class="password-toggle"
+                                aria-label="Show password"
+                                aria-pressed="false"
+                                onclick="togglePassword()">
+                            <span id="password-icon">◉</span>
+                        </button>
+                    </div>
+
+                    <button type="submit">Log In</button>
+
+                </form>
+
+                <p>
+                    Don't have an account?
+                    <a href="/sign-up">Sign Up</a>
+                </p>
+            </div>
+
+            <!-- Right side: Hero image -->
+            <div class="login-image">
+                <img src="{{ url_for('static', filename='images/login/login-hero.png') }}"
+                     alt="VIA Health & Fitness gym">
+            </div>
+
+        </section>
+    </main>
+</body>
+
+</html>
